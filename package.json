@@ -1,0 +1,26 @@
+{
+  "name": "character_sheet_xa",
+  "version": "1.0.0",
+  "description": "Proyecto para la creación y mantenimiento de la base de datos de estudiantes de Xarxatec Activa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "MySQl",
+    "Javascript",
+    "NodeJs",
+    "Express",
+    "Handlebars"
+  ],
+  "author": "Jano Soler",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^6.0.2",
+    "method-override": "^3.0.0",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15"
+  }
+}

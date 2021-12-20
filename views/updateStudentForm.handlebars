@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de actualización de datos del estudiante</title>
+</head>
+<body>
+    {{#if dataContext}}
+    <form name="updateStudent" action="/update-data-student" method="POST">
+            <p>
+                <label for="inputName">Name: </label>
+                <input id="inputName" type="text" name="iName" value={{dataContext.name}} required>
+            </p>
+            <p>
+                <label for="inputFirstSurname">First surname: </label>
+                <input id="inputFirstSurname" type="text" name="iFirstSurname" value={{dataContext.first_surname}} required>
+            </p>
+            <p>
+                <label for="inputSecondSurname">Second surname: </label>
+                <input id="inputSecondSurname" type="text" name="iSecondSurname" value={{dataContext.second_surname}}>
+            </p>
+            <p>
+                <label for="inputEmail">Email: </label>
+                <input id="inputEmail" type="email" name="iEmail" value={{dataContext.email}}>
+            </p>
+            <p>
+                <label for="inputPhone">Phone: </label>
+                <input id="inputPhone" type="tel" name="iPhone" value={{dataContext.telephone}}>
+            </p>
+            <p>
+                <label for="inputDescription">Description: </label>
+                <textarea id="inputDescription" type="text" name="iDescription" rows=5 columns=50>{{dataContext.description}}</textarea>
+            </p>
+            <p>
+                <input id="inputSubmit" type="submit">
+                <input type="hidden" name="metodo" value="put">
+                <input type="hidden" name="iIdStudent" value={{dataContext.id}}>
+            </p>
+        </form>
+    {{/if}}
+</body>
+</html>

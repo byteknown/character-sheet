@@ -1,0 +1,115 @@
+{{#if dataContext}}
+<div class="container">
+        <div class="personal">
+
+            <div class="avatar">
+                <img src="img/malephoto.jpg" alt="">
+                <div class="overlay">
+                    <div class="text">NIVEL 1</div>
+                  </div>
+            </div>
+
+            <article class="personalData">
+                    <div class="dataItem">
+                        <h4>NOMBRE</h4>
+                        <p>{{dataContext.name}}</p>
+                    </div>
+                    
+                    <div class="dataItem">
+                        <h4>APELLIDOS</h4>
+                        <p>{{dataContext.first_surname}} {{dataContext.second_surname}}</p>   
+                    </div>
+
+                    <div class="dataItem">
+                       <h4>TLF</h4>
+                        <p>{{dataContext.telephone}}</p> 
+                    </div>
+                    
+                    <div class="dataItem">
+                        <h4>EMAIL</h4>
+                        <p>{{dataContext.email}}</p>  
+                    </div>
+                    </article>
+  
+        </div>
+
+        <div class="skills">
+            <h4 class="skillTitulo">HABILIDADES</h4>
+            <div class="skillsContainer">
+                <div class="skillCards">
+                    <h4>HTML</h4>
+                    <div class="card">
+                        <p>90</p>
+                    </div>
+                 </div>
+
+                 <div class="skillCards">
+                     <h4>CSS</h4>
+                    <div class="card">
+                        <p>80</p>
+                    </div>
+                 </div>
+                 <div class="skillCards">
+                    <h4>JS</h4>
+                    <div class="card">
+                        <p>50</p>
+                    </div>
+                 </div>
+                 <div class="skillCards">
+                    <h4>REACT</h4>
+                    <div class="card">
+                        <p>10</p>
+                    </div>
+                 </div><div class="skillCards">
+                    <h4>NODEJS</h4>
+                    <div class="card">
+                        <p>10</p>
+                    </div>
+                 </div>
+                 <div class="skillCards">
+                    <h4>GIT</h4>
+                    <div class="card">
+                        <p>35</p>
+                    </div>
+                 </div>
+            </div>
+            
+        </div>
+        
+        <div class="badges">
+            <h4 class="badgesTitle">INVENTARIO</h4>
+            <div class="badgesItems">   
+                <div class="badgeItem">?</div>
+                <div class="badgeItem">?</div>
+                <div class="badgeItem">?</div>
+                <div class="badgeItem">?</div>
+                <div class="badgeItem">?</div>
+                <div class="badgeItem">?</div>
+                <div class="badgeItem">?</div>
+                <div class="badgeItem">?</div>
+                <div class="badgeItem">?</div>
+                <div class="badgeItem">?</div>
+            </div>
+        </div>
+        <section class="personalDesc">
+            <h4>DESCRIPCIÓN</h4>
+            <p>{{dataContext.description}}</p>
+        </section>
+        <section class="experience">
+            <h4>EXPERIENCIA</h4>
+            <h5>Estudios:</h5>
+            <ul>
+                <li>Desarrollo de Aplicaciones Web con Java</li>
+                <li>Cursos Udemy</li>
+                <li>FP Medio Sistemas Operativos Monopuestos y Redes</li>
+            </ul>
+
+            <div>
+                <h5>Experiencia:</h5>
+                <ul>
+                    <li>Diseño Web - Cámara Comercio Castellón</li>
+                </ul>
+            </div>
+        </section>
+ </div>
+{{/if}}

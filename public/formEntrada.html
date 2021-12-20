@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenimiento estudiantes Xarxatec Activa</title>
+</head>
+<body>
+    <form name="altaEstudiante" action="/new-student" method="POST">
+        <p>
+            <label for="inputName">Name: </label>
+            <input id="inputName" type="text" name="iName" required>
+        </p>
+        <p>
+            <label for="inputFirstSurname">First surname: </label>
+            <input id="inputFirstSurname" type="text" name="iFirstSurname" required>
+        </p>
+        <p>
+            <label for="inputSecondSurname">Second surname: </label>
+            <input id="inputSecondSurname" type="text" name="iSecondSurname">
+        </p>
+        <p>
+            <label for="inputEmail">Email: </label>
+            <input id="inputEmail" type="email" name="iEmail">
+        </p>
+        <p>
+            <label for="inputPhone">Phone: </label>
+            <input id="inputPhone" type="tel" name="iPhone">
+        </p>
+        <p>
+            <label for="inputDescription">Description: </label>
+            <textarea id="inputDescription" type="text" name="iDescription" rows=5 columns=50></textarea>
+        </p>
+        <p>
+            <input id="inputSubmit" type="submit">
+        </p>
+    </form>
+</body>
+</html>

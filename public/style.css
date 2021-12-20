@@ -1,0 +1,332 @@
+    *{margin: 0;}
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+    
+    body{
+        background: rgb(116,90,76);
+        background: linear-gradient(0deg, rgba(116,90,76,1) 6%, rgba(32,35,44,1) 77%);
+        background-size: cover;
+        
+    }
+    
+    .container{
+        display: grid;
+        grid-gap: 0px;
+        
+        font-size: 1.3rem;
+        font-family: 'Roboto', sans-serif;
+        height: 100vh;
+    }
+    .personal,
+    .badges,
+    .skills,
+    .avatar{
+        background: #29282D;
+        color: #afafaf;
+        text-align: center;
+    }
+
+    .experience,
+    .personalDesc{
+        background: rgb(116,90,76);
+        background:rgba(87,78,75,1);
+        color:#afafaf;
+        
+    }
+
+    .personal{
+        display: flex;
+        height: 15em;
+        padding: 20px;
+        grid-area: personal;
+        box-shadow:inset -10px 0px 10px 3px  #242327;
+        height: auto;
+    }
+
+    .avatar{
+        width: 18em;
+        
+    }
+    .personalData p{
+        padding-top: 0.2em;
+        padding-bottom: 1em;
+    }
+    .personalData h4{
+        color: #655045
+    }
+    .personalDesc{
+        grid-area: personalDesc;
+        padding: 1em;
+    }
+    .badges{
+        grid-area: badges;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .experience{
+        grid-area: experience;
+        padding: 1em;
+    }
+    .personalDesc h4{
+        margin-bottom: 1em;
+    }
+    .experience h4{
+        margin-bottom: 1em;
+    }
+    .experience h5{
+        margin-top: 1em;
+    }
+    .skills{
+        background: #29282D;
+        color: #8B8B8B;
+        grid-area: skills;
+        box-shadow:inset -10px 0px 10px 
+        3px  #242327;
+        padding: 1em;
+    }
+    .avatar img{
+        height: 230px;
+        width: 80%;
+        border: #afafaf 5px solid;
+        border-radius: 50%;
+    }
+    .skills h4{
+        text-align: center;
+        
+        
+    }
+    .skillsContainer{
+        padding: 1em;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1em;
+    }
+    .skillTitulo{
+        color: #655045
+    }
+
+    
+    .skillCards{
+        border: #31373E 2px solid;
+        text-align: center;
+        
+        height: 6em;
+    }
+    .skillCards h4{
+        background: #31373E;
+    }
+    .skillCards p{
+        font-size: 3rem;
+        padding:  20px;
+    }
+
+   .badges{
+       
+       text-align: center;
+   }
+   .badgesItems{
+       display: flex;
+       padding: 1em;
+       flex-wrap: wrap;
+       justify-content: space-evenly;
+       
+   }
+   .badgeItem{
+       height: 1em;
+       padding: 1em;
+       margin: 0.1em;
+       border: #31373E 2px solid;
+   }
+
+   .badgesTitle{
+    color: #655045
+   }
+
+ 
+
+
+/*PRUEBA0*/
+
+.avatar {
+    position: relative;
+    
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 5px;
+    bottom: 0;
+    left: 36px;
+    right: 0;
+    height: 260px;
+    width: 260px;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(87,78,75,1);
+    border-radius: 50%;
+  }
+  
+  .avatar:hover .overlay {
+    opacity: 1;
+  }
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+/*MediaQuerys*/
+
+    @media screen and (max-width:760px) {
+        .container{
+            grid-template-areas: 
+            "personal"
+            "badges"
+            "skills"
+            "personalDesc"
+            "experience";
+            
+        }
+        .personal{
+            flex-direction: column;
+            height: auto;
+        }
+
+        .personalData{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+        }
+
+        .avatar{
+            width: 14em;
+            margin: 0 auto;
+            padding-bottom: 1em;
+        }
+        .badgesItems{
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+
+        }
+
+        .overlay {
+            position: absolute;
+            top: 5px;
+            bottom: 0;
+            left: 30px;
+            right: 0;
+            height: 230px;
+            width: 230px;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: rgba(87,78,75,1);
+            border-radius: 50%;
+          }
+    }
+    
+    @media screen and (min-width:768px) {
+        .container{
+            grid-template-areas: "personal personal badges "
+                    " skills skills badges"
+                    " personalDesc personalDesc personalDesc"
+                    "experience experience experience";
+                  
+        }
+        .personalData{
+            text-align: end;
+        }
+        .badgeItem{
+            height: 0.65em;
+            padding: 1em;
+            
+            border: #31373E 2px solid;
+        }
+
+        .avatar img{
+            height: 300px;
+        }
+        .overlay {
+            position: absolute;
+            top: 5px;
+            bottom: 0;
+            left: 36px;
+            right: 0;
+            height: 300px;
+            width: 300px;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: rgba(87,78,75,1);
+            border-radius: 50%;
+          }
+    
+    }
+    @media screen and (min-width:1024px) {
+        .container{
+            grid-template-areas: "personal personalDesc personalDesc "
+                                "badges personalDesc personalDesc"
+                                "skills experience experience"
+                                "skills experience experience";
+           
+        }
+        
+        .personalData{
+            text-align: end;
+        }
+
+        .container{
+            font-size: 1.15em;
+        }
+
+        .personalDesc,
+        .experience{
+            font-size: 1.3rem;
+        }
+        
+        .skills{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .badges{
+            box-shadow:inset -10px 0px 10px 3px  #242327;
+        }
+        .badgesItems{
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1em;
+        }
+        .avatar img{
+            height: 260px;
+        }
+        .overlay {
+            position: absolute;
+            top: 5px;
+            bottom: 0;
+            left: 36px;
+            right: 0;
+            height: 260px;
+            width: 260px;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: rgba(87,78,75,1);
+            border-radius: 50%;
+          }
+    }
+
+    @media screen and (min-width:1440px) {
+        .badgesItems{
+            grid-template-columns: repeat(10, 1fr);
+            gap:0px;
+        }
+    }
