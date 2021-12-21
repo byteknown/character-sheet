@@ -14,6 +14,9 @@ router.post("/find-character-sheet", controller.findCharacterSheet);
 router.post("/find-data-student", controller.findDataStudent);
 router.put("/update-data-student", controller.updateStudent);
 
+router.get("/login", controller.login);
+router.post("/login", controller.checkLogin);
+
 router.get("/get-data-students", controller.getDataStudents);
 
 module.exports = router;

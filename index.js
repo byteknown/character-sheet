@@ -4,6 +4,10 @@ const hb = expressHandlebars.create({defaultLayout: "main"});
 const path = require('path');
 const router = require('./routes/routes.js');
 
+const { credentials } = require("./config/configEnv");
+
+const expressSession = require('express-session'); 
+
 const override = require('method-override');
 
 const app = express();
@@ -21,6 +25,8 @@ app.use(override((req, res)=> {
     return method
     }
 }))
+
+//app.use(expressSession())
 
 app.use(express.static(path.join( __dirname, 'public')));
 

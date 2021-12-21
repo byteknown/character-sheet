@@ -41,3 +41,17 @@ exports.getDataStudents = async (req, res)=>{
     //const JSONresults = JSON.stringify(results);
     res.json(results);
 }
+
+
+exports.login = (req, res)=> {
+    res.sendFile(path.join(__dirname, "public", "formLogin.html"));
+}
+
+exports.checkLogin = async (req, res)=>{
+    const result = await model.checkLogin(req.body.iUser, req.body.iPwd);
+    let message = {};
+    if (result==0) message.content="El usuario no existe en la base de datos";    
+    if (result==1) message.content="El usuario y el password no coinciden";    
+    if (result==0 || result==1)  res.render("formLogin.handlebars", {message: message});
+    else res.send("Login OK");    
+}

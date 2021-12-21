@@ -23,3 +23,17 @@ exports.getStudentData = async ()=>{
     const results =  await query.query(querySQL);
     return results;
 }
+
+exports.checkLogin = async (user, password)=>{
+    const querySQL = `SELECT password FROM user WHERE user= "${user}"`;
+    const results = await query.query(querySQL);
+    let responseCode = 0;//no existe el usuario
+    const userExists = (results.length==1);
+    let passwordOk = false;
+    if (userExists) {
+        passwordOk = (results[0].password == password);
+        responseCode = 1;//existe el usuario pero no coincide el password
+    }
+    if (passwordOk) responseCode = 2;//login OK
+    return responseCode;
+}
