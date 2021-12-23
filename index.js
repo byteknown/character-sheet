@@ -3,10 +3,14 @@ const expressHandlebars = require('express-handlebars');
 const hb = expressHandlebars.create({defaultLayout: "main"});
 const path = require('path');
 const router = require('./routes/routes.js');
+const config = require("./config/configDb.js");
 
 const { credentials } = require("./config/configEnv");
 
 const expressSession = require('express-session'); 
+const MySQLStore = require('express-mysql-session')(expressSession);
+
+const sessionStore = new MySQLStore(config);
 
 const override = require('method-override');
 
@@ -26,7 +30,12 @@ app.use(override((req, res)=> {
     }
 }))
 
-//app.use(expressSession())
+app.use(expressSession({
+    resave: false,
+    saveUninitialized: true,
+    secret: credentials.secret,
+    store: sessionStore
+}))
 
 app.use(express.static(path.join( __dirname, 'public')));
 

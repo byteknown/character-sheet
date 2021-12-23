@@ -17,6 +17,7 @@ exports.getFormFindCharacterSheet = (req, res)=>{
 exports.findCharacterSheet = async (req, res)=>{
     const dataJson = await model.findCharacterSheet(req.body.iStudentSelect);
     const parsedData = JSON.parse(dataJson);
+    console.log(req.session);
     res.render("characterSheet.handlebars", {dataContext:parsedData});
 }
 
@@ -44,14 +45,28 @@ exports.getDataStudents = async (req, res)=>{
 
 
 exports.login = (req, res)=> {
+    console.log(req.session);
     res.sendFile(path.join(__dirname, "public", "formLogin.html"));
 }
 
 exports.checkLogin = async (req, res)=>{
     const result = await model.checkLogin(req.body.iUser, req.body.iPwd);
     let message = {};
-    if (result==0) message.content="El usuario no existe en la base de datos";    
-    if (result==1) message.content="El usuario y el password no coinciden";    
-    if (result==0 || result==1)  res.render("formLogin.handlebars", {message: message});
-    else res.send("Login OK");    
+    let loginCode = 0;//no existe el usuario
+    const userExists = (result.length==1);
+    let passwordOk = false;
+    if (userExists) {
+        passwordOk = (result[0].password == req.body.iPwd);
+        loginCode = 1;//existe el usuario pero no coincide el password
+    }
+    if (passwordOk) loginCode = 2;//login OK
+    if (loginCode==0) message.content="El usuario no existe en la base de datos";    
+    if (loginCode==1) message.content="El usuario y el password no coinciden";    
+    if (loginCode==0 || loginCode==1){ res.render("formLogin.handlebars", {message: message});
+    }  
+    else {
+        req.session.user = req.body.iUser;
+        req.session.role = result[0].role;
+        res.send("Login OK");    
+    }
 }
