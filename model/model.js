@@ -26,7 +26,7 @@ exports.getStudentData = async ()=>{
 }
 
 exports.checkLogin = async (user, password)=>{
-    const querySQL = `SELECT password, role FROM user WHERE user= "${user}"`;
+    const querySQL = `SELECT password, role, id FROM user WHERE user= "${user}"`;
     const results = await query.query(querySQL);
     
     return results;

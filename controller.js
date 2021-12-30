@@ -35,6 +35,7 @@ exports.updateStudent = async (req, res) =>{
     const result = await model.updateStudentById(req.body);
     console.log("reultado del update:" + result);
     res.sendFile(path.join(__dirname, "public", "formFindDataStudent.html"));
+    res.redirect("/index.html");
 }
 
 exports.getDataStudents = async (req, res)=>{
@@ -65,8 +66,19 @@ exports.checkLogin = async (req, res)=>{
     if (loginCode==0 || loginCode==1){ res.render("formLogin.handlebars", {message: message});
     }  
     else {
+        const dataJson = await model.findCharacterSheet(result[0].id);
+        const parsedData = JSON.parse(dataJson);
+        console.log(req.session);
         req.session.user = req.body.iUser;
         req.session.role = result[0].role;
-        res.send("Login OK");    
+        console.log(result[0].id);
+        res.render("characterSheet.handlebars", {dataContext:parsedData});
+           
     }
+}
+
+exports.logout = (req, res) =>{
+    req.session.destroy();
+    console.log(req.session);
+    res.redirect("/login");
 }

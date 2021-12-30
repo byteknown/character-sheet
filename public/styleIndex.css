@@ -1,0 +1,14 @@
+.container{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.button{
+    align-items: flex-end;
+    background-color: blue;
+
+}
+
+.image{
+    background-color: blue;
+}

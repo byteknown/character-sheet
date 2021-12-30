@@ -1,6 +1,6 @@
 const express = require('express');
 const expressHandlebars = require('express-handlebars');
-const hb = expressHandlebars.create({defaultLayout: "main"});
+const hb = expressHandlebars.create({defaultLayout: 'index' ,partialsDir: __dirname + '/views/partials',layoutsDir: __dirname + '/views/layouts'});
 const path = require('path');
 const router = require('./routes/routes.js');
 const config = require("./config/configDb.js");
@@ -19,6 +19,7 @@ const app = express();
 app.engine('handlebars', hb.engine);
 app.set('view cache', true);
 app.set('view engine', 'handlebars');
+app.set('views',path.join(__dirname,'views'));
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -36,6 +37,7 @@ app.use(expressSession({
     secret: credentials.secret,
     store: sessionStore
 }))
+
 
 app.use(express.static(path.join( __dirname, 'public')));
 

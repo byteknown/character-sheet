@@ -5,7 +5,6 @@ const controller = require('../controller.js');
 
 const router = express.Router();
 
-
 router.get("/new-student", controller.getFormNewStudent);
 router.post("/new-student", controller.insertNewStudent);
 router.get("/get-character-sheet", controller.getFormFindCharacterSheet);
@@ -19,4 +18,5 @@ router.post("/login", controller.checkLogin);
 
 router.get("/get-data-students", controller.getDataStudents);
 
+router.get("/logout", controller.logout);
 module.exports = router;

@@ -1,16 +1,28 @@
-{{#if message}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    {{#if message}}
     <p class="texto-rojo">{{message.content}}</p>
-{{/if}}
-<form id="formLogin" action="/login" method="POST">
-    <p>
-        <label for="user">Usuario: </label>
-        <input type="text" id="user" name="iUser">
-    </p>
-    <p>
-        <label for="pwd">Password: </label>
-        <input type="password" id="pwd" name="iPwd">
-    </p>
-    <p>
-        <input type="submit">
-    </p>
-</form>
+    {{/if}}
+    <form id="formLogin" action="/login" method="POST">
+        <p>
+            <label for="user">Usuario: </label>
+            <input type="text" id="user" name="iUser">
+        </p>
+        <p>
+            <label for="pwd">Password: </label>
+            <input type="password" id="pwd" name="iPwd">
+        </p>
+        <p>
+            <input type="submit">
+        </p>
+    </form>
+</body>
+</html>
