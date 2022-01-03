@@ -41,6 +41,5 @@ exports.findCharacterSheet2 = async (user) =>{
 exports.findCharacterId = async (user) =>{
     const querySQL = `SELECT id FROM user WHERE user= "${user}"`
     const results =  await query.query(querySQL);
-    console.log("database results = " + JSON.stringify(results));
     return JSON.stringify(results[0]);
 }

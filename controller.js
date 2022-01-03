@@ -34,13 +34,10 @@ exports.findDataStudent = async (req, res) =>{
 exports.updateStudent = async (req, res) =>{
     const result = await model.updateStudentById(req.body);
     //res.sendFile(path.join(__dirname, "public", "formFindDataStudent.html"));
-    console.log("RESULT= " + result);
     const user = req.session.user;
-    console.log("USER =" + user);
     const id = await model.findCharacterId(user);
     const parsedId = JSON.parse(id);
-    console.log("ID =" + parsedId);
-    const dataJson = await model.findCharacterSheet(id[6]);
+    const dataJson = await model.findCharacterSheet(parsedId.id);
     const parsedData = JSON.parse(dataJson); 
     //res.redirect("/index.html");
     res.render("characterSheet.handlebars", {dataContext:parsedData});
