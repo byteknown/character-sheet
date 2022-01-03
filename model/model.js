@@ -31,3 +31,16 @@ exports.checkLogin = async (user, password)=>{
     
     return results;
 }
+
+exports.findCharacterSheet2 = async (user) =>{
+    const querySQL = `SELECT * FROM student WHERE id = (SELECT id FROM user WHERE user= "${user}")`;
+    const results =  await query.query(querySQL);
+    return JSON.stringify(results[0]);
+}
+
+exports.findCharacterId = async (user) =>{
+    const querySQL = `SELECT id FROM user WHERE user= "${user}"`
+    const results =  await query.query(querySQL);
+    console.log("database results = " + JSON.stringify(results));
+    return JSON.stringify(results[0]);
+}

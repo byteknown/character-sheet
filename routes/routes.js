@@ -10,7 +10,7 @@ router.post("/new-student", controller.insertNewStudent);
 router.get("/get-character-sheet", controller.getFormFindCharacterSheet);
 router.post("/find-character-sheet", controller.findCharacterSheet);
 //router.get("/get-data-student", controller.getFormFindDataStudent);
-router.post("/find-data-student", controller.findDataStudent);
+router.post("/find-data-student", controller.findDataStudent2);
 router.put("/update-data-student", controller.updateStudent);
 
 router.get("/login", controller.login);

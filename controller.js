@@ -33,9 +33,17 @@ exports.findDataStudent = async (req, res) =>{
 
 exports.updateStudent = async (req, res) =>{
     const result = await model.updateStudentById(req.body);
-    console.log("reultado del update:" + result);
-    res.sendFile(path.join(__dirname, "public", "formFindDataStudent.html"));
-    res.redirect("/index.html");
+    //res.sendFile(path.join(__dirname, "public", "formFindDataStudent.html"));
+    console.log("RESULT= " + result);
+    const user = req.session.user;
+    console.log("USER =" + user);
+    const id = await model.findCharacterId(user);
+    const parsedId = JSON.parse(id);
+    console.log("ID =" + parsedId);
+    const dataJson = await model.findCharacterSheet(id[6]);
+    const parsedData = JSON.parse(dataJson); 
+    //res.redirect("/index.html");
+    res.render("characterSheet.handlebars", {dataContext:parsedData});
 }
 
 exports.getDataStudents = async (req, res)=>{
@@ -81,4 +89,12 @@ exports.logout = (req, res) =>{
     req.session.destroy();
     console.log(req.session);
     res.redirect("/login");
+}
+
+exports.findDataStudent2 = async (req, res) =>{
+    const user = req.session.user;
+    console.log("USUARIO = " + req.session.user);
+    const dataJson = await model.findCharacterSheet2(user);
+    const parsedData = JSON.parse(dataJson);
+    res.render("updateStudentForm.handlebars", {dataContext: parsedData, layout: false});
 }
